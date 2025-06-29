@@ -1,4 +1,4 @@
-export function EventsIndex({events}) {
+export function EventsIndex({events, onShow}) {
   return (
     <div>
       <h1>All Events ({events.length} total)</h1>
@@ -7,6 +7,7 @@ export function EventsIndex({events}) {
           <h2>{event.name}</h2>
           <p>{event.location}</p>
           <p>{event.date}</p>
+          <button onClick={() => onShow(event)}>More Info</button>
         </div>
       ))}
     </div>
