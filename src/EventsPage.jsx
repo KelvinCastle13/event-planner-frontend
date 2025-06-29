@@ -19,9 +19,12 @@ export function EventsPage() {
 
   const handleShow = (event) => {
     console.log("handleShow", event);
-    setIsEventsShowVisible(true);
-    setCurrentEvent(event);
+    axios.get(`/events/${event.id}.json`).then((response) => {
+      setCurrentEvent(response.data);
+      setIsEventsShowVisible(true);
+    })
   };
+
 
   useEffect(handleIndex, []);
   
